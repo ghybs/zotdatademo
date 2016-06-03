@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ZotDATA Demo App</title>
+
+  <style type="text/css">
+    body {
+      background-color: #ca4f24;
+      color: white;
+      text-align: center;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+    }
+
+    #logo {
+      text-align: right;
+      padding: 20px 20px 0 0;
+    }
+
+    #logoImg {
+      max-width: 200px;
+    }
+
+    #buttons {
+      position: absolute;
+      width: 100%;
+      bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      text-align: center;
+      border-collapse: collapse;
+      padding: 0;
+    }
+
+    table img {
+      max-width: 50px;
+    }
+
+    .imgButton {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div id="logo">
+  <img id="logoImg" src="img/LogoZotDATA.png" />
+</div>
+
+<h1>Tâche 01</h1>
+
+<div id="buttons">
+
+  <table>
+    <tr>
+      <td>
+        <img class="imgButton" src="img/DOCon.png" />
+      </td>
+      <td>
+        <img class="imgButton" src="img/SECURITEon.png" />
+      </td>
+    </tr>
+  </table>
+
+  <br />
+  <br />
+
+  <table>
+    <tr>
+      <td>
+        <img class="imgButton" src="img/DEBUTon.png" />
+      </td>
+      <td>
+        <img class="imgButton" src="img/INCIDENTSon.png" />
+      </td>
+      <td>
+        <img class="imgButton" src="img/FINon.png" />
+      </td>
+    </tr>
+  </table>
+
+</div>
+
+<script type="application/javascript">
+
+  var imgButtons = document.getElementsByClassName("imgButton"),
+      i = 0,
+      imgButton;
+
+  for (; i < imgButtons.length; i += 1) {
+    imgButton = imgButtons[i];
+    imgButton.addEventListener("click", function (event) {
+      event.preventDefault();
+
+      var thisButton = event.currentTarget;
+
+      if (!thisButton.animating) {
+        var originalSrc = thisButton.getAttribute("src"),
+            offSrc = originalSrc.replace("on.png", "off.png");
+
+        thisButton.animating = true;
+        thisButton.setAttribute("src", offSrc);
+
+        setTimeout(function () {
+          thisButton.setAttribute("src", originalSrc);
+          thisButton.animating = false;
+        }, 250);
+      }
+    });
+  }
+
+</script>
+
+</body>
+</html>
