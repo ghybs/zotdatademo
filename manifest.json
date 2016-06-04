@@ -1,0 +1,11 @@
+{
+  "name": "ZotDATA",
+  "short_name": "ZotDATA",
+  "start_url": "./zotDATAdemoApp.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ca4f24",
+  "theme_color": "#ca4f24",
+  "dir": "ltr",
+  "lang": "fr-FR"
+}

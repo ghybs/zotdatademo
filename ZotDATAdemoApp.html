@@ -5,6 +5,7 @@
   <title>ZotDATA Demo App</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="manifest" href="/manifest.json">
 
   <style type="text/css">
     body {
@@ -102,24 +103,26 @@
 
   for (; i < imgButtons.length; i += 1) {
     imgButton = imgButtons[i];
-    imgButton.addEventListener("click", function (event) {
-      event.preventDefault();
+    imgButton.addEventListener("click", _clickButton);
+  }
 
-      var thisButton = event.currentTarget;
+  function _clickButton(event) {
+    event.preventDefault();
 
-      if (!thisButton.animating) {
-        var originalSrc = thisButton.getAttribute("src"),
-            offSrc = originalSrc.replace("on.png", "off.png");
+    var thisButton = event.currentTarget;
 
-        thisButton.animating = true;
-        thisButton.setAttribute("src", offSrc);
+    if (!thisButton.animating) {
+      var originalSrc = thisButton.getAttribute("src"),
+          offSrc = originalSrc.replace("on.png", "off.png");
 
-        setTimeout(function () {
-          thisButton.setAttribute("src", originalSrc);
-          thisButton.animating = false;
-        }, 250);
-      }
-    });
+      thisButton.animating = true;
+      thisButton.setAttribute("src", offSrc);
+
+      setTimeout(function () {
+        thisButton.setAttribute("src", originalSrc);
+        thisButton.animating = false;
+      }, 250);
+    }
   }
 
 </script>
